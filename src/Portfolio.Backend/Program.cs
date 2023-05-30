@@ -1,8 +1,13 @@
+using Portfolio.Backend.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-
-
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    // the db connection string.
+});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
