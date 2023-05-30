@@ -6,9 +6,10 @@ namespace Portfolio.Backend.Controllers;
 [Route("api/blogs")]
 public class BlogsController : Controller
 {
-    public BlogsController()
+    private readonly ILogger _logger;
+    public BlogsController(ILogger logger)
     {
-        
+        _logger = logger;
     }
     [HttpGet()]
     public async Task<IActionResult> GetCourses()
