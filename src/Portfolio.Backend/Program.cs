@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Portfolio.Backend.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    // the db connection string.
+    options.UseMySql("server=localhost;user=root;database=portfolio;password=;",
+        ServerVersion.AutoDetect(""));
 });
 
 builder.Services.AddEndpointsApiExplorer();
